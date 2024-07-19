@@ -1,61 +1,51 @@
 import ImageFile from "@/components/ImageFile";
-import ModalFile from "@/components/ModalFile";
 import Footer from "@/layout/Footer";
 import Header from "@/layout/Header";
+import { useRouter } from "next/router";
 import React, { Fragment, useState } from "react";
 
 const HomePage = () => {
-  const [isAdminSelected, setIsAdminSelected] = useState(!false);
-  const [isUserSelected, setIsUserSelected] = useState(true);
-  const [showLoader, setShowLoader] = useState(false);
-  const [loader, setLoader] = useState(false);
+  const [adminLoader, setAdminLoader] = useState(false);
+  const [userLoader, setUserLoader] = useState(false);
 
-  const handleAdminClick = () => {
-    setShowLoader(true);
+
+  const router = useRouter();
+  const handleSubmit = (link) => {
+    if (link == "/user") {
+      setUserLoader(true);
+    } else {
+      setAdminLoader(true);
+    }
+
     setTimeout(() => {
-      setShowLoader(false);
-      setIsUserSelected(false);
-      setIsAdminSelected(false);
-    }, 5000);
+      setUserLoader(false);
+      setAdminLoader(false);
+      router.push(link)
+
+    }, 2000);
   };
-
-  const handleSubmit = () => {
-    setLoader(true);
-    setTimeout(() => {
-      setLoader(false);
-      setIsUserSelected(false);
-      setIsAdminSelected(false);
-    }, 5000);
-  };
-
-  //  Header
-
-  const [openModal, setOpenModal] = useState(false);
-
   return (
     <Fragment>
-      <ModalFile openModal={openModal} setOpenModal={setOpenModal} />
-      {isUserSelected && (
+      <div className="main-box">
         <div className="button-box">
-          <button className="admin-button " onClick={handleAdminClick}>
-         
-            {showLoader ? (
+          <button className="admin-button " onClick={() => handleSubmit("/admin")}>
+
+            {adminLoader ? (
               <i class="fa fa-spinner fa-spin spinner-icons"></i>
             ) : (
               " Admin"
             )}
           </button>
-          <button className="user-button " onClick={handleSubmit}>
-            {loader ? (
+          <button className="user-button " onClick={() => handleSubmit("/user")}>
+            {userLoader ? (
               <i class="fa fa-spinner fa-spin spinner-icons"></i>
             ) : (
-               " User"
+              " User"
             )}
           </button>
         </div>
-      )}
-      {isAdminSelected && <div className="main-box"></div>}
-      <Header setOpenModal={setOpenModal} />
+      </div>
+      <Header setOpenModal={() => { }} />
       <ImageFile />
       <Footer />
     </Fragment>

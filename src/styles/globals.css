@@ -66,15 +66,17 @@
   justify-content: center;
 }
 .container{
+  height: 54px;
+  display: flex;
+}
+.image-container{
   height: auto;
-  margin: 18px 0px;
   padding: 8px;
   display: flex;
   flex-wrap: wrap;
- justify-content: center;
+  justify-content: center;
   align-content: flex-start;
-  background-color: #f1f1f1;
-  border-radius: 11px;  
+  background-color: #f1f1f1; 
 }
 .image-list{
   border: 1px solid #edebeb;
@@ -94,23 +96,37 @@
 .logo{
   height: 41px;
   width: 37px;
-  margin: 8px 104px;
-  position: absolute;
+  margin: 5px 0px;
 
 }
+.text-file{
+  display: none!important;
+}
 .image-list .image-item{
-  height:100%;
-  width:100%;
-  border-radius: 8px;
+     width: 112px;
+    border-radius: 8px;
+    margin: 8px auto;
+    display: block;
 }
 .text-box{
-  height: 35px;
-  width: 404px;
+  height: 38px;
+  min-width: 66%;
   padding: 0px 9px;
   border-radius: 4px;
   border: 1px solid #808080a3;
+  margin: 7px 51px;
 }
 .upload-btn{
+  height: 31px;
+  padding: 0px 18px;
+  border-radius: 4px;
+  border: 1px dashed #808080a3;
+  position: relative;
+  right: 131px;
+  top: 10px;
+}
+
+/* .upload-btn{
   cursor: pointer;
   height: 31px;
     width: 71px;
@@ -118,7 +134,6 @@
     border: 1px solid #d7d3d3;
     border-radius: 6px;
     border-style: dashed;
-    margin: 0px -75px;
 }
 .search-btn{
   cursor: pointer;
@@ -127,22 +142,25 @@
   background-color: white;
   border-radius: 6px;
   border: 1px solid gray;
-  margin: 0px 89px;
+  margin: 8px 132px;
+
 }
 .image-item-box{
   height: 80px;
   width: 80px;
   margin: 7px;
-}
+} */
 .image-list p{
   padding: 0px 3px;
   font-weight: 600;
   line-height: 0;
+  text-align: center;
+  margin-top: 18px;
 }
 .modal-box{
   border: 1px solid;
-  height: 98vh;
-  position: absolute;
+  height: 100vh;
+  position: fixed;
   width: 99%;
   left: 0;
   top: 0;
@@ -155,6 +173,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 .custom-input {
   border: 1px solid white;
@@ -186,7 +205,7 @@
   margin: 0px;
 }
 .footer{
-  height: 155px;
+  height: 78px;
   background-color: #eeeeee;
   display:flex;
   flex-wrap: wrap;
@@ -227,3 +246,10 @@
 }
 
 
+.header-area .box{
+  height: 100%;
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}

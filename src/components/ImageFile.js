@@ -75,12 +75,10 @@ const ImageFile = () => {
     },
   ]);
   return (
-    <div className="container">
+    <div className="image-container">
       {showImage.map((item) => (
         <div className="image-list">
-          <div className="image-item-box">
             <img className="image-item" src={item.image} />
-          </div>
           <p>{item.title}</p>
         </div>
       ))}
