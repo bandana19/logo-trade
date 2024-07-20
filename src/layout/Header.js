@@ -1,11 +1,14 @@
+import ImageDetails from "@/components/ImageDetails";
 import ModalFile from "@/components/ModalFile";
-import React, { useRef, useState } from "react";
+import React, { Fragment, useRef, useState } from "react";
 
 const Header = () => {
   const inputFileRef = useRef();
   const [openModal, setOpenModal] = useState(false);
 
   return (
+    <Fragment>
+        
     <header className="header-area">
       <ModalFile openModal={openModal} setOpenModal={setOpenModal} />
       <img className="logo" src="image/img-1.jpg" alt="image" />
@@ -23,16 +26,7 @@ const Header = () => {
 </button>
      </div>
     </header>
+    </Fragment>
   );
 };
-
-
-{/* 
-<div className="box">
-
- 
-
-</div>
- */}
-
 export default Header;

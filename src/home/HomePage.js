@@ -8,7 +8,6 @@ const HomePage = () => {
   const [adminLoader, setAdminLoader] = useState(false);
   const [userLoader, setUserLoader] = useState(false);
 
-
   const router = useRouter();
   const handleSubmit = (link) => {
     if (link == "/user") {
@@ -20,8 +19,7 @@ const HomePage = () => {
     setTimeout(() => {
       setUserLoader(false);
       setAdminLoader(false);
-      router.push(link)
-
+      router.push(link);
     }, 2000);
   };
   return (
@@ -29,31 +27,33 @@ const HomePage = () => {
       <div className="main-box">
         <div className="button-box">
           <div className="admin-box">
-          <button className=" admin-btn" onClick={() => handleSubmit("/admin")}>
-        
-            {adminLoader ? (
-              <i class="fa fa-spinner fa-spin spinner-icons"></i>
-            ) : (
-              " Admin"
-            )}
-                <i class="fa fa-user-secret admin-arrow"></i>
-          </button>
+            <button
+              className=" admin-btn"
+              onClick={() => handleSubmit("/admin")}
+            >
+              {adminLoader ? (
+                <i class="fa fa-spinner fa-spin spinner-icons"></i>
+              ) : (
+                " Admin"
+              )}
+              <i class="fa fa-user-secret admin-arrow"></i>
+            </button>
           </div>
-         
-         
-         <div className="user-box">
-          <button className=" user-btn" onClick={() => handleSubmit("/user")}>
-            {userLoader ? (
-              <i class="fa fa-spinner fa-spin spinner-icons"></i>
-            ) : (
-              " User"
-            )}
-             <i class="fa fa-user user-arrow"></i>
-          </button>
+
+          <div className="user-box">
+            <button className=" user-btn" onClick={() => handleSubmit("/user")}>
+              {userLoader ? (
+                <i class="fa fa-spinner fa-spin spinner-icons"></i>
+              ) : (
+                " User"
+              )}
+              <i class="fa fa-user user-arrow"></i>
+            </button>
           </div>
         </div>
       </div>
-      <Header setOpenModal={() => { }} />
+
+      <Header setOpenModal={() => {}} />
       <ImageFile />
       <Footer />
     </Fragment>

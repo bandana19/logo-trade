@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
+import ImageDetails from "./ImageDetails";
 const ImageFile = () => {
   const [showImage, setShowImage] = useState([
     {
@@ -74,15 +75,29 @@ const ImageFile = () => {
       title: "Interior  Designer",
     },
   ]);
+
+  const [showDetails,setShowDetails]=useState(false)
+  const [data,setData]=useState([])
+
+  const showImageDeta =(index)=>{
+    setShowDetails(true)
+    setData(showImage[index])
+   
+  }
   return (
+    <Fragment>
+        <ImageDetails showDetails={showDetails} setShowDetails={setShowDetails} data={data}/>
+  
     <div className="image-container">
-      {showImage.map((item) => (
+      {showImage.map((item,index) => (
         <div className="image-list">
-            <img className="image-item" src={item.image} />
+            <img className="image-item" src={item.image} 
+            onClick={()=>showImageDeta(index)}/>
           <p>{item.title}</p>
         </div>
       ))}
     </div>
+    </Fragment>
   );
 };
 
