@@ -45,6 +45,7 @@ const Footer = () => {
         <p>Visitors: 116913393</p>
       </div>
     </div>
+  
   );
 };
 

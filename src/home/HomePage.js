@@ -28,21 +28,29 @@ const HomePage = () => {
     <Fragment>
       <div className="main-box">
         <div className="button-box">
-          <button className="admin-button " onClick={() => handleSubmit("/admin")}>
-
+          <div className="admin-box">
+          <button className=" admin-btn" onClick={() => handleSubmit("/admin")}>
+        
             {adminLoader ? (
               <i class="fa fa-spinner fa-spin spinner-icons"></i>
             ) : (
               " Admin"
             )}
+                <i class="fa fa-user-secret admin-arrow"></i>
           </button>
-          <button className="user-button " onClick={() => handleSubmit("/user")}>
+          </div>
+         
+         
+         <div className="user-box">
+          <button className=" user-btn" onClick={() => handleSubmit("/user")}>
             {userLoader ? (
               <i class="fa fa-spinner fa-spin spinner-icons"></i>
             ) : (
               " User"
             )}
+             <i class="fa fa-user user-arrow"></i>
           </button>
+          </div>
         </div>
       </div>
       <Header setOpenModal={() => { }} />
