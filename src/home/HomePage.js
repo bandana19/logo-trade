@@ -26,7 +26,9 @@ const HomePage = () => {
     <Fragment>
       <div className="main-box">
         <div className="button-box">
+
           <div className="admin-box">
+          <i class="fa fa-user-secret admin-arrow"></i>
             <button
               className=" admin-btn"
               onClick={() => handleSubmit("/admin")}
@@ -36,18 +38,19 @@ const HomePage = () => {
               ) : (
                 " Admin"
               )}
-              <i class="fa fa-user-secret admin-arrow"></i>
+              
             </button>
           </div>
 
           <div className="user-box">
+          <i class="fa fa-user user-arrow"></i>
             <button className=" user-btn" onClick={() => handleSubmit("/user")}>
               {userLoader ? (
                 <i class="fa fa-spinner fa-spin spinner-icons"></i>
               ) : (
                 " User"
               )}
-              <i class="fa fa-user user-arrow"></i>
+          
             </button>
           </div>
         </div>
